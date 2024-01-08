@@ -26,13 +26,20 @@ public class GestionAlimentationA extends JFrame {
         panel.add(titleLabel, BorderLayout.PAGE_START);
 
         JPanel topPanel = new JPanel();
+        topPanel.setLayout(new GridBagLayout()); 
+        
         JLabel label = new JLabel("Services:");
-        label.setFont(new Font("Arial", Font.BOLD, 14)); 
+        label.setFont(new Font("Arial", Font.BOLD, 24)); 
+        
         topPanel.add(label);
-
+        
       
+           
         String[] services = {"Service A", "Service B", "Service C"};
         serviceDropdown = new JComboBox<>(services);
+        Dimension preferredSize = new Dimension(200, 30); // Adjust width and height as needed
+        serviceDropdown.setPreferredSize(preferredSize);
+        
         topPanel.add(serviceDropdown);
 
         panel.add(topPanel, BorderLayout.CENTER);
