@@ -13,8 +13,8 @@ public class Controle {
     // Exemple d'utilisation
     public static void main(String[] args) {
         // Simulation d'une interface utilisateur
-        String username = "utilisateur1";
-        char[] password = "motdepasse1".toCharArray();
+        String username = "makhlouf";
+        char[] password = "1234".toCharArray();
 
         // Appel de la méthode d'authentification
         boolean authentificationReussie = authenticate(username, password);

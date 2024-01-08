@@ -52,10 +52,13 @@ public class LoginWindow extends JFrame {
                 // Logique de connexion simplifiée pour l'exemple
                 String username = usernameField.getText();
                 char[] password = passwordField.getPassword();
+              
 
 
-                Controle controleur = new Controle();
-                boolean authentificationReussie = controleur.authenticate(username, password);
+
+
+     
+                boolean authentificationReussie = Controle.authenticate(username, password);
 
                 if (authentificationReussie) {
                     JOptionPane.showMessageDialog(LoginWindow.this, "Connexion reussie !");
@@ -63,7 +66,10 @@ public class LoginWindow extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(LoginWindow.this, "echec de la connexion. Veuillez verifier vos informations.");
                 }
+                System.out.println("username : " +username);
+                System.out.println(password);
             }
+            
         });
     }
     private JLabel createLabel(String text) {
@@ -72,15 +78,19 @@ public class LoginWindow extends JFrame {
         return label;
     }
     private JTextField createTextField() {
-        JTextField textField = new JTextField(20);
-        textField.setFont(new Font("Arial", Font.PLAIN, 16)); 
-        return textField;
+   
+        usernameField = new JTextField(20);
+        usernameField.setFont(new Font("Arial", Font.PLAIN, 16)); 
+        return usernameField;
     }
+    
     private JPasswordField createPasswordField() {
-        JPasswordField passwordField = new JPasswordField(20);
+ 
+        passwordField = new JPasswordField(20);
         passwordField.setFont(new Font("Arial", Font.PLAIN, 16)); 
         return passwordField;
     }
+    
     
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
