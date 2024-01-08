@@ -37,7 +37,7 @@ public class GestionAlimentationA extends JFrame {
            
         String[] services = {"Service A", "Service B", "Service C"};
         serviceDropdown = new JComboBox<>(services);
-        Dimension preferredSize = new Dimension(200, 30); // Adjust width and height as needed
+        Dimension preferredSize = new Dimension(200, 30); 
         serviceDropdown.setPreferredSize(preferredSize);
         
         topPanel.add(serviceDropdown);
