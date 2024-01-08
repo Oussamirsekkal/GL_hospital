@@ -107,39 +107,37 @@ class GestionAlimentationDetails extends JFrame {
     }
 
     private void initComponents(String service) {
-      JPanel panel = new JPanel();
-panel.setLayout(new BorderLayout());
-panel.setBackground(new Color(173, 216, 230));
+    JPanel panel = new JPanel();
+    panel.setLayout(new BorderLayout());
+    panel.setBackground(new Color(173, 216, 230));
 
-serviceLabel = new JLabel("Service: " + service, SwingConstants.CENTER);
-serviceLabel.setFont(new Font("Arial", Font.BOLD, 16)); 
-serviceLabel.setForeground(new Color(0, 0, 128)); 
-panel.add(serviceLabel, BorderLayout.PAGE_START);
+    serviceLabel = new JLabel("Service: " + service, SwingConstants.CENTER);
+    serviceLabel.setFont(new Font("Arial", Font.BOLD, 16)); 
+    serviceLabel.setForeground(new Color(0, 0, 128)); 
+    panel.add(serviceLabel, BorderLayout.PAGE_START);
 
-JPanel formPanel = new JPanel();
-formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));
-formPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+    JPanel formPanel = new JPanel();
+    formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));
+    formPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-JLabel patientCountLabel = new JLabel("Number of Patients:");
-patientCountField = new JTextField();
-patientCountField.setEditable(false); 
-patientCountField.setMaximumSize(new Dimension(Integer.MAX_VALUE, patientCountField.getPreferredSize().height));
+    JLabel patientCountLabel = new JLabel("Number of Patients:");
+    patientCountField = new JTextField();
+    patientCountField.setEditable(false); 
+    patientCountField.setMaximumSize(new Dimension(Integer.MAX_VALUE, patientCountField.getPreferredSize().height));
 
-JLabel bedIdsLabel = new JLabel("IDs of Beds:");
-bedIdsArea = new JTextArea();
-bedIdsArea.setEditable(false); 
-bedIdsArea.setRows(1);
+    JLabel bedIdsLabel = new JLabel("IDs of Beds:");
+    bedIdsArea = new JTextArea();
+    bedIdsArea.setEditable(false); 
+    bedIdsArea.setRows(1);
 
-formPanel.add(patientCountLabel);
-formPanel.add(patientCountField);
-formPanel.add(Box.createRigidArea(new Dimension(0, 10))); 
-formPanel.add(bedIdsLabel);
-formPanel.add(bedIdsArea);
+    formPanel.add(patientCountLabel);
+    formPanel.add(patientCountField);
+    formPanel.add(Box.createRigidArea(new Dimension(0, 10))); 
+    formPanel.add(bedIdsLabel);
+    formPanel.add(bedIdsArea);
 
-panel.add(formPanel, BorderLayout.CENTER);
-
-
-        panel.add(formPanel, BorderLayout.CENTER);
+    panel.add(formPanel, BorderLayout.CENTER);
+    panel.add(formPanel, BorderLayout.CENTER);
 
         JButton backButton = new JButton("Back");
         backButton.addActionListener(new ActionListener() {

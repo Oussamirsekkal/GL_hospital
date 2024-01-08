@@ -51,9 +51,13 @@ public class LoginWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 // Logique de connexion simplifiée pour l'exemple
                 String username = usernameField.getText();
-                char[] passwordd = passwordField.getPassword();
-                String password = new String(passwordd);
-                if (authenticate(username, password)) {
+                char[] password = passwordField.getPassword();
+
+
+                Controle controleur = new Controle();
+                boolean authentificationReussie = controleur.authenticate(username, password);
+
+                if (authentificationReussie) {
                     JOptionPane.showMessageDialog(LoginWindow.this, "Connexion reussie !");
                     // Ajoutez ici la logique pour ouvrir la nouvelle fenêtre de l'application hospitalière
                 } else {
@@ -62,17 +66,6 @@ public class LoginWindow extends JFrame {
             }
         });
     }
-
-
-
-   // j'ai mis cette fonction authenticate pour seullemment tester l'authenticate de laplication 
-    private boolean authenticate(String user,String pass){
-        if( ("makhlouf".equals(user)) && ("1234".equals(pass)) ){ return true;}
-        else {if( ("sekkal".equals(user) && "1234".equals(pass)) ){ return true;}
-             else {return false;}
-        }
-    }
-
     private JLabel createLabel(String text) {
         JLabel label = new JLabel(text);
         label.setFont(new Font("Arial", Font.PLAIN, 16)); 
