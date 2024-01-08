@@ -9,7 +9,7 @@ public class GestionAlimentationA extends JFrame {
     public GestionAlimentationA() {
         setTitle("Gestion Alimentation");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(400, 200));
+        setPreferredSize(new Dimension(800, 600));
         initComponents();
         pack();
         setLocationRelativeTo(null); 
