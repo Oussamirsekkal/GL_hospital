@@ -56,4 +56,8 @@ public class utilisateur {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public static void main(String[] args){
+        
+    }
 }
