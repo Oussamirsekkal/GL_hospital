@@ -13,18 +13,18 @@ public class LoginWindow extends JFrame {
         setSize(800, 800);
         setLocationRelativeTo(null);
 
-        // Création des composants
+  
         usernameField = new JTextField(20);
         passwordField = new JPasswordField(20);
         JButton loginButton = new JButton("Connexion");
 
-        // layout de la fenetre connexion 
+
        setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // Marges entre les composants
+        gbc.insets = new Insets(5, 5, 5, 5); 
 
-        // Ajout des composants à la fenêtre avec GridBagLayout
-         gbc.gridx = 0;
+        
+        gbc.gridx = 0;
         gbc.gridy = 0;
         add(createLabel("Nom d'utilisateur:"), gbc);
 
@@ -42,29 +42,54 @@ public class LoginWindow extends JFrame {
 
         gbc.gridx = 1;
         gbc.gridy = 2;
-        gbc.anchor = GridBagConstraints.EAST; // Aligner le bouton à droite
+        gbc.anchor = GridBagConstraints.EAST; 
         add(loginButton, gbc);
         
-        // Ajout d'un écouteur d'action au bouton de connexion
+
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Logique de connexion simplifiée pour l'exemple
                 String username = usernameField.getText();
                 char[] password = passwordField.getPassword();
               
 
-
-
-
      
                 boolean authentificationReussie = Controle.authenticate(username, password);
 
-                if (authentificationReussie) {
-                    JOptionPane.showMessageDialog(LoginWindow.this, "Connexion reussie !");
-                    // Ajoutez ici la logique pour ouvrir la nouvelle fenêtre de l'application hospitalière
-                } else {
-                    JOptionPane.showMessageDialog(LoginWindow.this, "echec de la connexion. Veuillez verifier vos informations.");
+               if (authentificationReussie) {
+                    Object[] options = {"Ouvrir la page principale"};
+                    int result = JOptionPane.showOptionDialog(LoginWindow.this,
+                            "Connexion reussie !",
+                            "Succes",
+                            JOptionPane.DEFAULT_OPTION,
+                            JOptionPane.INFORMATION_MESSAGE,
+                            null,
+                            options,
+                            options[0]);
+
+                    if (result == 0) { 
+
+                        MainPage mainPage = new MainPage();
+                        mainPage.setVisible(true);
+                        dispose();
+                    }
+                }
+                else {
+                     Object[] options = {"Ressayer", "Annuler"};
+                    int result = JOptionPane.showOptionDialog(LoginWindow.this,
+                            "echec de la connexion. Veuillez verifier vos informations.",
+                            "echec",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.ERROR_MESSAGE,
+                            null,
+                            options,
+                            options[0]);
+
+                    if (result == JOptionPane.YES_OPTION) {
+                        
+                    } else {
+                        System.exit(0);
+                    }
                 }
                 System.out.println("username : " +username);
                 System.out.println(password);
@@ -91,11 +116,9 @@ public class LoginWindow extends JFrame {
         return passwordField;
     }
     
-    
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             try {
-                // Utilisez le look and feel du système par défaut
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
                 e.printStackTrace();
